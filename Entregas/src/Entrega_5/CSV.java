@@ -210,6 +210,7 @@ public class CSV {
 		
 		//System.out.println( numLin + "\t" + datos );  // Saca la cabecera por consola de error
 		//System.out.println(datos.get(2));
+		@SuppressWarnings("unchecked")
 		Usuario_Twitter u = new Usuario_Twitter((String) datos.get(0), (String)datos.get(1), (ArrayList<String>) datos.get(2), (String) datos.get(3), (long)datos.get(4), (long)datos.get(5), (String)datos.get(6),(long)datos.get(7), (String)datos.get(8), (ArrayList<String>)datos.get(9));
 		GestionTwitter.getmUsuariosPorId().put(u.getId(), u);
 		

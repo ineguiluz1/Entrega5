@@ -2,7 +2,7 @@ package Entrega_5;
 
 import java.util.*;
 
-public class Usuario_Twitter {
+public class Usuario_Twitter implements Comparable {
 
 	//Atributos de la clase
 	
@@ -99,6 +99,17 @@ public class Usuario_Twitter {
 		return "Usuario_Twitter [id=" + id + ", screenName=" + screenName + ", tags=" + tags + ", avatar=" + avatar
 				+ ", followersCount=" + followersCount + ", friendsCount=" + friendsCount + ", lang=" + lang
 				+ ", lastSeen=" + lastSeen + ", tweetId=" + tweetId + ", friends=" + friends + "]";
+	}
+	@Override
+	public int compareTo(Object o) {
+		Usuario_Twitter uT = ( Usuario_Twitter ) o;
+		if(GestionTwitter.contarAmigos(this) > GestionTwitter.contarAmigos(uT)) {
+			return GestionTwitter.contarAmigos(uT) - GestionTwitter.contarAmigos( this );
+		}else {
+			String nick1 = this.screenName;
+			String nick2 = uT.getScreenName();
+			return nick1.compareTo(nick2);
+		}
 	}
 	
 	
